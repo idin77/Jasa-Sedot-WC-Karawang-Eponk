@@ -14,9 +14,9 @@ export default function MapSection() {
             <div className="relative z-10 bg-white/90 backdrop-blur-sm p-6 rounded-xl shadow-lg text-center">
                 <h3 className="text-xl font-semibold text-slate-900">Karawang & Sekitarnya</h3>
                 <p className="text-slate-600 mt-2">Kami melayani pengerjaan di seluruh area Karawang.</p>
-                <button className="mt-4 bg-amber-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-amber-600 transition">
+                <a href="https://wa.me/6285817692245" className="mt-4 inline-block bg-amber-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-amber-600 transition">
                     Hubungi Kami
-                </button>
+                </a>
             </div>
             
             {/* Aesthetic overlay */}

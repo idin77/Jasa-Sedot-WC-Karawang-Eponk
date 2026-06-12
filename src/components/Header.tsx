@@ -12,7 +12,7 @@ export default function Header() {
             </div>
             <div>
               <span className="block font-extrabold text-lg sm:text-xl tracking-tight leading-none text-white">
-                JASA SEDOT WC <span className="text-amber-400">KARAWANG</span>
+                JASA SEDOT WC KARAWANG
               </span>
               <span className="text-[11px] text-slate-300 tracking-widest font-semibold uppercase mt-1 block">
                 Layanan Cepat & Terpercaya
@@ -30,7 +30,16 @@ export default function Header() {
 
           {/* Header CTA */}
           <div className="flex items-center gap-3">
+            <button className="hidden sm:flex items-center gap-1.5 text-xs font-bold text-slate-400 hover:text-white transition-colors">
+              <span>ID</span>
+              <span className="text-slate-600">/</span>
+              <span>EN</span>
+            </button>
             <a href="tel:0858-1769-2245" className="hidden lg:flex items-center gap-2 bg-slate-800 border border-slate-200/20 px-4 py-2 rounded-xl text-slate-200 text-sm font-semibold hover:bg-slate-800/80 transition-all">
+              <div className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              </div>
               <Phone size={16} className="text-amber-400" />
               <span>0858-1769-2245</span>
             </a>

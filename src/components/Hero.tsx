@@ -13,7 +13,7 @@ export default function Hero() {
             <span className="flex h-2 w-2 rounded-full bg-amber-400 animate-pulse"></span>
             Pelayanan Siaga 24 Jam Karawang
           </div>
-          <h1 className="text-4xl lg:text-6xl font-extrabold tracking-tight">
+          <h1 className="text-4xl lg:text-6xl font-extrabold tracking-tight text-white">
             Jasa Sedot WC Karawang <br />
             <span className="text-amber-400">Cepat, Bersih & Terpercaya</span>
           </h1>
