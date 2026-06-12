@@ -4,10 +4,12 @@
  */
 
 import Header from './components/Header';
+import EmergencyCallout from './components/EmergencyCallout';
 import AvailabilityBanner from './components/AvailabilityBanner';
 import Hero from './components/Hero';
 import ProblemSection from './components/ProblemSection';
 import ServicesSection from './components/ServicesSection';
+import TrustIndicators from './components/TrustIndicators';
 import PromoSection from './components/PromoSection';
 import WorkProcess from './components/WorkProcess';
 import AreaSection from './components/AreaSection';
@@ -27,10 +29,12 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-50">
       <Header />
+      <EmergencyCallout />
       <AvailabilityBanner />
       <Hero />
       <ProblemSection />
       <ServicesSection />
+      <TrustIndicators />
       <PromoSection />
       <WorkProcess />
       <AreaSection />
