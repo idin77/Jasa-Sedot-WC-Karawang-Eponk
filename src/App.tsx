@@ -14,6 +14,7 @@ import PromoSection from './components/PromoSection';
 import WorkProcess from './components/WorkProcess';
 import AreaSection from './components/AreaSection';
 import MapSection from './components/MapSection';
+import ServicePriceCalculator from './components/ServicePriceCalculator';
 import BookingForm from './components/BookingForm';
 import TestimonialsSection from './components/TestimonialsSection';
 import WorkDocumentation from './components/WorkDocumentation';
@@ -21,6 +22,7 @@ import TipsSection from './components/TipsSection';
 import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
 import FloatingContactButtons from './components/FloatingWAButton';
+import BackToTop from './components/BackToTop';
 import { useSEOTracker } from './hooks/useSEOTracker';
 
 export default function App() {
@@ -39,6 +41,7 @@ export default function App() {
       <WorkProcess />
       <AreaSection />
       <MapSection />
+      <ServicePriceCalculator />
       <BookingForm />
       <TestimonialsSection />
       <WorkDocumentation />
@@ -46,6 +49,7 @@ export default function App() {
       <FAQSection />
       <Footer />
       <FloatingContactButtons />
+      <BackToTop />
     </div>
   );
 }
