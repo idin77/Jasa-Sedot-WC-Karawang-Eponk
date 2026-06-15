@@ -50,10 +50,16 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <button
               onClick={toggleLanguage}
-              className="hidden sm:flex items-center gap-1.5 text-xs font-bold text-slate-400 hover:text-white transition-colors"
+              className="hidden sm:flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-white transition-colors"
             >
               <span className={language === 'id' ? 'text-white' : ''}>ID</span>
-              <span className="text-slate-600">/</span>
+              <div className="w-8 h-4 bg-slate-700 rounded-full relative flex items-center p-0.5">
+                <div
+                  className={`w-3 h-3 bg-white rounded-full transition-transform duration-200 ${
+                    language === 'en' ? 'translate-x-4' : 'translate-x-0'
+                  }`}
+                />
+              </div>
               <span className={language === 'en' ? 'text-white' : ''}>EN</span>
             </button>
             <button 

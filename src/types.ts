@@ -12,5 +12,13 @@ export interface Translations {
     };
     cta: string;
   };
-  // Add more sections as needed
+  team: {
+    title: string;
+    members: Array<{
+      name: string;
+      role: string;
+      bio: string;
+      certification: string;
+    }>;
+  };
 }

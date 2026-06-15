@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { MessageCircle } from 'lucide-react';
+import { useAnalytics } from '../hooks/useAnalytics';
 
 export default function BookingForm() {
+  const { trackEvent } = useAnalytics();
   const [formData, setFormData] = useState({
     name: '',
     address: '',
@@ -10,6 +12,7 @@ export default function BookingForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    trackEvent('booking_form_submitted', { name: formData.name });
     const message = `Halo, saya ingin memesan layanan sedot WC.
 Nama: ${formData.name}
 Alamat: ${formData.address}
