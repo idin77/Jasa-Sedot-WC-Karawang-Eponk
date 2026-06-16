@@ -1,10 +1,11 @@
+import HeroImage from '../assets/images/jasa-sedot-wc-karawang.jpg';
 import { Zap, Phone, MessageCircle } from 'lucide-react';
 
 export default function Hero() {
   return (
     <section className="relative overflow-hidden py-16 lg:py-24">
       <div className="absolute inset-0 z-0">
-        <img src="/src/assets/images/jasa-sedot-wc-karawang.jpg" alt="Sedot WC Karawang" className="w-full h-full object-cover" />
+        <img src={HeroImage} alt="Sedot WC Karawang" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-slate-900/80"></div>
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

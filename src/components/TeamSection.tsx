@@ -1,9 +1,16 @@
 import { useLanguage } from '../context/LanguageContext';
-import { Award, User } from 'lucide-react';
+import { Award } from 'lucide-react';
+import BudiPhoto from '../assets/images/team_budi_santoso_1781602898033.jpg';
+import AndiPhoto from '../assets/images/team_andi_wijaya_1781602913170.jpg';
 
 export default function TeamSection() {
   const { t } = useLanguage();
   const team = t('team');
+
+  const teamImages: { [key: string]: string } = {
+    'Budi Santoso': BudiPhoto,
+    'Andi Wijaya': AndiPhoto,
+  };
 
   return (
     <section className="py-16 bg-white" id="team">
@@ -13,9 +20,11 @@ export default function TeamSection() {
           {team.members.map((member: any, index: number) => (
             <div key={index} className="bg-slate-50 border border-slate-100 p-6 rounded-2xl flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex items-center gap-4">
-                <div className="p-3 bg-amber-100 text-amber-600 rounded-full">
-                  <User size={24} />
-                </div>
+                <img
+                  src={teamImages[member.name] || '/placeholder.jpg'}
+                  alt={member.name}
+                  className="w-16 h-16 rounded-full object-cover"
+                />
                 <div>
                   <h3 className="font-bold text-slate-900 text-lg">{member.name}</h3>
                   <p className="text-amber-600 font-medium text-sm">{member.role}</p>

@@ -1,10 +1,16 @@
+import TruckRear from '../assets/images/service_truck_rear_view_1780692456879.png';
+import FleetTruck from '../assets/images/fleet_truck_after_1780692321562.png';
+import TruckMain from '../assets/images/jasa-sedot-wc-karawang.jpg';
+import BeforeJob from '../assets/images/before_job_1780691490305.png';
+import AfterJob from '../assets/images/after_job_1780691507858.png';
+
 export default function WorkDocumentation() {
   const photos = [
-    { src: "/src/assets/images/service_truck_rear_view_1780692456879.png", label: "Truk Sedot WC Karawang" },
-    { src: "/src/assets/images/fleet_truck_after_1780692321562.png", label: "Armada Kami di Lokasi" },
-    { src: "/src/assets/images/jasa-sedot-wc-karawang.jpg", label: "Truk Sedot WC Karawang" },
-    { src: "/src/assets/images/before_job_1780691490305.png", label: "Proses Pengerjaan" },
-    { src: "/src/assets/images/after_job_1780691507858.png", label: "Hasil Kerja" },
+    { src: TruckRear, label: "Truk Sedot WC Karawang" },
+    { src: FleetTruck, label: "Armada Kami di Lokasi" },
+    { src: TruckMain, label: "Truk Sedot WC Karawang" },
+    { src: BeforeJob, label: "Proses Pengerjaan" },
+    { src: AfterJob, label: "Hasil Kerja" },
   ];
 
   return (
