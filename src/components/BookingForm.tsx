@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MessageCircle } from 'lucide-react';
 import { useAnalytics } from '../hooks/useAnalytics';
+import { generateWhatsAppLink } from '../utils/whatsapp';
 
 export default function BookingForm() {
   const { trackEvent } = useAnalytics();
@@ -9,6 +10,8 @@ export default function BookingForm() {
     address: '',
     date: '',
   });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [lastWhatsappLink, setLastWhatsappLink] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,9 +20,37 @@ export default function BookingForm() {
 Nama: ${formData.name}
 Alamat: ${formData.address}
 Tanggal Pelayanan: ${formData.date}`;
-    const whatsappLink = `https://wa.me/6285817692245?text=${encodeURIComponent(message)}`;
+    const whatsappLink = generateWhatsAppLink(message);
+    setLastWhatsappLink(whatsappLink);
     window.open(whatsappLink, '_blank');
+    setIsSubmitted(true);
   };
+
+  if (isSubmitted) {
+    return (
+      <section id="kontak-booking" className="py-16 bg-slate-100">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-2xl shadow-xl p-8 border border-slate-200 text-center">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
+              Terima Kasih!
+            </h2>
+            <p className="text-slate-600 mb-6">
+              Pesan Anda sudah dikirim. Untuk respons yang lebih cepat, silakan klik tombol di bawah ini:
+            </p>
+            <a
+              href={lastWhatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-all"
+            >
+              <MessageCircle size={20} />
+              Chat via WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="kontak-booking" className="py-16 bg-slate-100">
