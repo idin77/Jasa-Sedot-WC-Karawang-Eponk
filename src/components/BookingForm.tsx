@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle, CheckCircle } from 'lucide-react';
+import { motion } from 'motion/react';
 import { useAnalytics } from '../hooks/useAnalytics';
 import { generateWhatsAppLink } from '../utils/whatsapp';
 
@@ -31,6 +32,14 @@ Tanggal Pelayanan: ${formData.date}`;
       <section id="kontak-booking" className="py-16 bg-slate-100">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl shadow-xl p-8 border border-slate-200 text-center">
+            <motion.div
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 10 }}
+              className="flex justify-center mb-4"
+            >
+              <CheckCircle className="text-green-500 w-16 h-16" />
+            </motion.div>
             <h2 className="text-2xl font-bold text-slate-900 mb-4">
               Terima Kasih!
             </h2>
