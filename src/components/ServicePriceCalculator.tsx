@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Calculator, MessageCircle } from 'lucide-react';
+import { Calculator, MessageCircle, FileDown } from 'lucide-react';
+import { jsPDF } from "jspdf";
 
 const services = [
   { name: 'Sedot Septic Tank Rumah Tangga', basePrice: 350000 },
@@ -18,6 +19,17 @@ export default function ServicePriceCalculator() {
   const [selectedUrgency, setSelectedUrgency] = useState(urgencies[0]);
 
   const estimate = Math.floor(selectedService.basePrice * selectedUrgency.multiplier);
+
+  const downloadPDF = () => {
+    const doc = new jsPDF();
+    doc.setFontSize(18);
+    doc.text("Estimasi Harga Sedot WC Karawang", 10, 20);
+    doc.setFontSize(12);
+    doc.text(`Layanan: ${selectedService.name}`, 10, 40);
+    doc.text(`Urgensi: ${selectedUrgency.name}`, 10, 50);
+    doc.text(`Estimasi Biaya: Rp ${estimate.toLocaleString('id-ID')}`, 10, 60);
+    doc.save("estimasi_biaya_sedot_wc.pdf");
+  };
 
   return (
     <div className="bg-slate-900 rounded-3xl p-8 mt-12 shadow-xl text-white">
@@ -47,17 +59,24 @@ export default function ServicePriceCalculator() {
         </div>
       </div>
 
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-6 bg-slate-800 p-6 rounded-2xl border border-slate-700">
+      <div className="flex flex-col gap-6 bg-slate-800 p-6 rounded-2xl border border-slate-700">
         <div>
           <p className="text-slate-400 text-sm">Estimasi Biaya</p>
           <p className="text-3xl font-black text-amber-400">Rp {estimate.toLocaleString('id-ID')}</p>
         </div>
-        <a href={`https://wa.me/6285882448632?text=Halo%20Sedot%20WC%20Karawang%2C%20saya%20ingin%20memesan%20layanan%20${selectedService.name}%20dengan%20urgensi%3A%20${selectedUrgency.name}.%20Estimasi%20biaya%3A%20Rp%20${estimate.toLocaleString('id-ID')}.`} 
-           target="_blank" rel="noopener noreferrer"
-           className="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-slate-900 font-extrabold px-6 py-3 rounded-xl flex items-center justify-center gap-2 transition-all">
-          <MessageCircle size={20} />
-          <span>Pesan via WhatsApp</span>
-        </a>
+        <div className="flex flex-col sm:flex-row gap-4">
+          <a href={`https://wa.me/6285882448632?text=Halo%20Sedot%20WC%20Karawang%2C%20saya%20ingin%20memesan%20layanan%20${selectedService.name}%20dengan%20urgensi%3A%20${selectedUrgency.name}.%20Estimasi%20biaya%3A%20Rp%20${estimate.toLocaleString('id-ID')}.`} 
+             target="_blank" rel="noopener noreferrer"
+             className="flex-1 bg-amber-500 hover:bg-amber-600 text-slate-900 font-extrabold px-6 py-3 rounded-xl flex items-center justify-center gap-2 transition-all">
+            <MessageCircle size={20} />
+            <span>Pesan via WhatsApp</span>
+          </a>
+          <button onClick={downloadPDF}
+             className="flex-1 bg-slate-700 hover:bg-slate-600 text-white font-bold px-6 py-3 rounded-xl flex items-center justify-center gap-2 transition-all">
+            <FileDown size={20} />
+            <span>Download PDF</span>
+          </button>
+        </div>
       </div>
     </div>
   );
