@@ -1,6 +1,8 @@
+import { useState, useEffect } from 'react';
 import { Star } from 'lucide-react';
+import TestimonialForm from './TestimonialForm';
 
-const testimonials = [
+const initialTestimonials = [
   {
     name: 'Ibu Endang',
     title: 'Ibu Rumah Tangga - Gading Serpong',
@@ -36,6 +38,24 @@ const StarRating = ({ rating }: { rating: number }) => {
 };
 
 export default function TestimonialsSection() {
+  const [testimonials, setTestimonials] = useState(initialTestimonials);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('testimonials');
+    if (saved) {
+      setTestimonials([...initialTestimonials, ...JSON.parse(saved)]);
+    }
+  }, []);
+
+  const handleAddTestimonial = (newTestimonial: any) => {
+    const updated = [...testimonials, newTestimonial];
+    setTestimonials(updated);
+    
+    // Save only new ones
+    const saved = JSON.parse(localStorage.getItem('testimonials') || '[]');
+    localStorage.setItem('testimonials', JSON.stringify([...saved, newTestimonial]));
+  };
+
   return (
     <section id="testimoni" className="py-16 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,6 +77,7 @@ export default function TestimonialsSection() {
             </div>
           ))}
         </div>
+        <TestimonialForm onAddTestimonial={handleAddTestimonial} />
       </div>
     </section>
   );

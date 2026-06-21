@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { MessageCircle, X, Send } from 'lucide-react';
+import { MessageCircle, X, Send, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface Message {
@@ -7,6 +7,12 @@ interface Message {
   sender: 'user' | 'support';
   text: string;
 }
+
+const QUICK_ACTIONS = [
+  { label: 'Cek Harga', message: 'Halo, saya ingin menanyakan harga layanan sedot WC.' },
+  { label: 'Booking Darurat', message: 'Halo, saya butuh layanan sedot WC darurat segera!' },
+  { label: 'Info Lokasi', message: 'Halo, apakah wilayah saya tercover layanan sedot WC?' },
+];
 
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,6 +59,11 @@ export default function ChatWidget() {
     }, 1000);
   };
 
+  const openWhatsApp = (message: string) => {
+    const phone = '6285882448632'; // Assuming this is the business number
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+  };
+
   return (
     <div className="fixed bottom-6 right-6 z-50">
       <AnimatePresence>
@@ -61,7 +72,7 @@ export default function ChatWidget() {
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
-            className="w-80 h-96 bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col mb-4 overflow-hidden"
+            className="w-80 h-[450px] bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col mb-4 overflow-hidden"
           >
             <div className="bg-slate-900 text-white p-4 flex justify-between items-center">
               <h3 className="font-bold">Chat Support</h3>
@@ -69,6 +80,25 @@ export default function ChatWidget() {
                 <X size={18} />
               </button>
             </div>
+
+            <div className="p-3 bg-slate-100 border-b border-slate-200">
+               <p className="text-xs font-bold text-slate-500 mb-2 flex items-center gap-1">
+                 <Sparkles size={12} />
+                 QUICK SEND (WA)
+               </p>
+               <div className="flex flex-wrap gap-2">
+                 {QUICK_ACTIONS.map(action => (
+                   <button 
+                     key={action.label}
+                     onClick={() => openWhatsApp(action.message)}
+                     className="bg-white text-green-600 border border-green-200 text-xs px-2 py-1 rounded-full hover:bg-green-50 transition-colors"
+                   >
+                     {action.label}
+                   </button>
+                 ))}
+               </div>
+            </div>
+
             <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-slate-50">
               {messages.map((msg) => (
                 <div key={msg.id} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
