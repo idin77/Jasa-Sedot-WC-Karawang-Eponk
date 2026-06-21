@@ -10,11 +10,9 @@ import Hero from './components/Hero';
 import ProblemSection from './components/ProblemSection';
 import ServicesSection from './components/ServicesSection';
 import TrustIndicators from './components/TrustIndicators';
-import PromoSection from './components/PromoSection';
 import WorkProcess from './components/WorkProcess';
 import AreaSection from './components/AreaSection';
 import MapSection from './components/MapSection';
-import ServicePriceCalculator from './components/ServicePriceCalculator';
 import TeamSection from './components/TeamSection';
 import BookingForm from './components/BookingForm';
 import TestimonialsSection from './components/TestimonialsSection';
@@ -24,6 +22,7 @@ import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
 import FloatingContactButtons from './components/FloatingWAButton';
 import BackToTop from './components/BackToTop';
+import ChatWidget from './components/ChatWidget';
 import SEO from './components/SEO';
 import { useSEOTracker } from './hooks/useSEOTracker';
 import { useAnalytics } from './hooks/useAnalytics';
@@ -50,11 +49,9 @@ export default function App() {
       <ProblemSection />
       <ServicesSection />
       <TrustIndicators />
-      <PromoSection />
       <WorkProcess />
       <AreaSection />
       <MapSection />
-      <ServicePriceCalculator />
       <TeamSection />
       <BookingForm />
       <TestimonialsSection />
@@ -64,6 +61,7 @@ export default function App() {
       <Footer />
       <FloatingContactButtons />
       <BackToTop />
+      <ChatWidget />
     </div>
   );
 }
