@@ -4,6 +4,7 @@
  */
 
 import Header from './components/Header';
+import SeasonalPromo from './components/SeasonalPromo';
 import EmergencyCallout from './components/EmergencyCallout';
 import AvailabilityBanner from './components/AvailabilityBanner';
 import Hero from './components/Hero';
@@ -43,6 +44,7 @@ export default function App() {
         description="Layanan jasa sedot WC profesional dan cepat di Karawang. Hubungi kami untuk penanganan darurat WC mampet atau penuh sekarang!"
       />
       <Header />
+      <SeasonalPromo />
       <EmergencyCallout />
       <AvailabilityBanner />
       <Hero />

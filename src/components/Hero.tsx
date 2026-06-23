@@ -1,5 +1,6 @@
 import HeroImage from '../assets/images/jasa-sedot-wc-karawang.jpg';
 import { Zap, Phone, MessageCircle } from 'lucide-react';
+import TeamAvailability from './TeamAvailability';
 
 export default function Hero() {
   return (
@@ -10,9 +11,12 @@ export default function Hero() {
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center space-y-6">
-          <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 text-amber-400 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase">
-            <span className="flex h-2 w-2 rounded-full bg-amber-400 animate-pulse"></span>
-            Pelayanan Siaga 24 Jam Karawang
+          <div className="flex flex-col items-center gap-3 mb-6">
+            <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 text-amber-400 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase">
+              <span className="flex h-2 w-2 rounded-full bg-amber-400 animate-pulse"></span>
+              Pelayanan Siaga 24 Jam Karawang
+            </div>
+            <TeamAvailability />
           </div>
           <h1 className="text-4xl lg:text-6xl font-extrabold tracking-tight text-white">
             Jasa Sedot WC Karawang <br />

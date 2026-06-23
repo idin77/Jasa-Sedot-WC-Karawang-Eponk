@@ -60,7 +60,7 @@ export default function ChatWidget() {
   };
 
   const openWhatsApp = (message: string) => {
-    const phone = '6285882448632'; // Assuming this is the business number
+    const phone = '6285817692245'; // Assuming this is the business number
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
   };
 

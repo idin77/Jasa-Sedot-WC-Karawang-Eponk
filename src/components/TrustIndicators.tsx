@@ -1,10 +1,10 @@
-import { Award, Zap, CheckCircle } from 'lucide-react';
+import { ShieldCheck, Clock, Wrench } from 'lucide-react';
 
 export default function TrustIndicators() {
   const items = [
-    { icon: Award, title: 'Certified Professional', desc: 'Teknisi Berpengalaman' },
-    { icon: Zap, title: 'Fast Response', desc: 'Respon Cepat 24 Jam' },
-    { icon: CheckCircle, title: 'Guaranteed Results', desc: 'Hasil Kerja Terjamin' },
+    { icon: ShieldCheck, title: 'No Hidden Fees', desc: 'Transparan & Jujur' },
+    { icon: Clock, title: 'Same-day Response', desc: 'Respon Hari yang Sama' },
+    { icon: Wrench, title: 'Professional Equipment', desc: 'Peralatan Canggih' },
   ];
 
   return (

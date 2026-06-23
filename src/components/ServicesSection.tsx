@@ -1,4 +1,5 @@
 import { Home, Wrench, Factory } from 'lucide-react';
+import ServicePriceCalculator from './ServicePriceCalculator';
 
 export default function ServicesSection() {
   const services = [
@@ -20,6 +21,7 @@ export default function ServicesSection() {
             </div>
           ))}
         </div>
+        <ServicePriceCalculator />
       </div>
     </section>
   );

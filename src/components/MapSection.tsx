@@ -8,7 +8,7 @@ const KECAMATAN = [
 
 export default function MapSection() {
   const whatsappLink = (kec: string) => 
-    `https://wa.me/6285882448632?text=Halo%20Sedot%20WC%20Karawang%2C%20saya%20berada%20di%20${kec}%20dan%20membutuhkan%20layanan%20sedot%20WC.`;
+    `https://wa.me/6285817692245?text=Halo%20Sedot%20WC%20Karawang%2C%20saya%20berada%20di%20${kec}%20dan%20membutuhkan%20layanan%20sedot%20WC.`;
 
   return (
     <section className="bg-slate-50 py-16">
