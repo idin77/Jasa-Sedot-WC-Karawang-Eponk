@@ -47,9 +47,19 @@ export default function ServicePriceCalculator() {
           </select>
         </div>
       </div>
-      <div className="bg-slate-900 p-6 rounded-xl flex items-center justify-between mt-6">
-        <p className="text-slate-400">Estimasi Biaya</p>
-        <p className="text-3xl font-bold text-amber-400">Rp {estimate.toLocaleString('id-ID')}</p>
+      <div className="bg-slate-900 p-6 rounded-xl flex flex-col md:flex-row items-center justify-between mt-6 gap-4">
+        <div className="text-left">
+          <p className="text-slate-400 text-sm">Estimasi Biaya</p>
+          <p className="text-3xl font-bold text-amber-400">Rp {estimate.toLocaleString('id-ID')}</p>
+        </div>
+        <a
+          href={`https://wa.me/6285817692245?text=Halo,%20saya%20ingin%20memesan%20layanan%20${service.name}%20dengan%20estimasi%20harga%20Rp%20${estimate.toLocaleString('id-ID')}.`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-green-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-700 transition flex items-center gap-2"
+        >
+          Hubungi via WhatsApp
+        </a>
       </div>
     </div>
   );
